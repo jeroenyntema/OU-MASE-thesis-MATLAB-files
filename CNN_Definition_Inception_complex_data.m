@@ -1,3 +1,5 @@
+% changed on 9/6/2025 to have 4 main blocks instead of 3
+
 % Define input parameters
 inputSize = [512, 1, 1];
 numClasses = 4;
@@ -23,7 +25,7 @@ lgraph_complex_inception = connectLayers(lgraph_complex_inception, 'conv1', 'bn1
 lgraph_complex_inception = connectLayers(lgraph_complex_inception, 'bn1', 'relu1');
 
 % Add Inception blocks
-numInceptionBlocks = 3; % Adjust the number of inception blocks as needed
+numInceptionBlocks = 4; % Adjust the number of inception blocks as needed
 
 for i = 1:numInceptionBlocks
     if i == 1

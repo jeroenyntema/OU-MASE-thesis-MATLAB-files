@@ -1,3 +1,5 @@
+% changed on 9/6/2025 to have 6 main blocks instead of 5
+
 % Define input parameters
 inputSize = [512, 1, 2];
 numClasses = 4;
@@ -10,9 +12,9 @@ inputLayer = imageInputLayer(inputSize, 'Normalization', 'none', 'Name', 'input'
 lgraph_2channel_vgg = addLayers(lgraph_2channel_vgg, inputLayer);
 
 % Define the VGG blocks
-numVGGBlocks = 5;         % Typical VGG models have 5 blocks
-numConvsPerBlock = [2, 2, 3, 3, 3]; % Number of conv layers per block
-numFilters = [64, 128, 256, 512, 512]; % Number of filters for each block
+numVGGBlocks = 6;         % Updated to 6 blocks
+numConvsPerBlock = [2, 2, 3, 3, 3, 3]; % Number of conv layers per block, extended for 6th block
+numFilters = [64, 128, 256, 512, 512, 512]; % Number of filters, extended for 6th block
 
 for i = 1:numVGGBlocks
     if i == 1

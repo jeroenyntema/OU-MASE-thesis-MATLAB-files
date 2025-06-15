@@ -1,3 +1,6 @@
+
+% changed on 9/6/2025 to have 4 main blocks instead of 3
+
 % Define input parameters
 inputSize = [512, 1, 2];
 numClasses = 4;
@@ -23,7 +26,7 @@ lgraph_2channel_inception = connectLayers(lgraph_2channel_inception, 'conv1', 'b
 lgraph_2channel_inception = connectLayers(lgraph_2channel_inception, 'bn1', 'relu1');
 
 % Add Inception blocks
-numInceptionBlocks = 3; % Adjust the number of inception blocks as needed
+numInceptionBlocks = 4; % Adjust the number of inception blocks as needed
 
 for i = 1:numInceptionBlocks
     if i == 1

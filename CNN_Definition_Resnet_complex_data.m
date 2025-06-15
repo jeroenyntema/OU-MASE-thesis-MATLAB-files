@@ -1,3 +1,5 @@
+% changed on 9/6/2025 to have 8 main blocks instead of 3
+
 inputSize = [512, 1, 1];
 numClasses = 4;
 
@@ -22,7 +24,7 @@ lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'conv1', 'bn1');
 lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'bn1', 'relu1');
 
 % Add residual blocks with appropriate naming
-for i = 1:3
+for i = 1:8
     if i == 1
         inputLayerName = 'relu1';
     else
@@ -44,7 +46,7 @@ lgraph_complex_resnet = addLayers(lgraph_complex_resnet, softmax);
 lgraph_complex_resnet = addLayers(lgraph_complex_resnet, classification);
 
 % Connect the final layers
-lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'resBlock3_final_relu', 'globalAvgPool');
+lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'resBlock8_final_relu', 'globalAvgPool');
 lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'globalAvgPool', 'fc');
 lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'fc', 'softmax');
 lgraph_complex_resnet = connectLayers(lgraph_complex_resnet, 'softmax', 'classification');

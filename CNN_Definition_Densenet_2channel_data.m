@@ -1,3 +1,5 @@
+% changed on 9/6/2025 to have 5 main blocks instead of 3
+
 % Define input parameters
 inputSize = [512, 1, 2];
 numClasses = 4;
@@ -24,7 +26,7 @@ lgraph_2channel_densenet = connectLayers(lgraph_2channel_densenet, 'bn1', 'relu1
 
 % Add dense blocks
 growthRate = 32; % Growth rate, i.e., number of feature maps added per layer within dense blocks
-numDenseBlocks = 3;
+numDenseBlocks = 5;
 numLayersPerBlock = 4;
 
 % Connect each transition layer's output to the next dense block or final layers

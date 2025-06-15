@@ -1,3 +1,5 @@
+% changed on 9/6/2025 to have 8 main blocks instead of 3
+
 inputSize = [512, 1, 2];
 numClasses = 4;
 
@@ -22,7 +24,7 @@ lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'conv1', 'bn1');
 lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'bn1', 'relu1');
 
 % Add residual blocks with appropriate naming
-for i = 1:3
+for i = 1:8
     if i == 1
         inputLayerName = 'relu1';
     else
@@ -44,7 +46,7 @@ lgraph_2channel_resnet = addLayers(lgraph_2channel_resnet, softmax);
 lgraph_2channel_resnet = addLayers(lgraph_2channel_resnet, classification);
 
 % Connect the final layers
-lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'resBlock3_final_relu', 'globalAvgPool');
+lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'resBlock8_final_relu', 'globalAvgPool');
 lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'globalAvgPool', 'fc');
 lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'fc', 'softmax');
 lgraph_2channel_resnet = connectLayers(lgraph_2channel_resnet, 'softmax', 'classification');
